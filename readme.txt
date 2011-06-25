@@ -26,7 +26,7 @@ You can use any date or time string [supported by PHP](http://www.php.net/manual
 [expires off="Septmber 10th, 2012"]Will expire on 09/10/2012[/expires]
 [showafter on="2012.09.10 18:00:00"]Will show after 09/10/2012 at 6pm[/showafter]`
 
-Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (12:00:00AM), not the end of the day. If you would preferr to show the content for the rest of today, then you should set your expiration date to tomorrow.
+Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (12:00:00AM), not the end of the day. If you would prefer to show the content for the rest of today, then you should set your expiration date to tomorrow.
 
 Thanks to [Alex King](http://alexking.org "Alex King") and [Crowd Favorite](http://www.crowdfavorite.com "Crowd Favorite") for their original code in the [Expiring Content Shortcode](http://wordpress.org/extend/plugins/expiring-content-shortcode/ "Expiring Content Shortcode").
 
