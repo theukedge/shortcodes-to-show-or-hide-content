@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text
 Requires at least: 2.5
 Tested up to: 3.1.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Creates shortcodes which you can wrap around text, which specify at what date or time that content should appear or disappear. Great for competitions
 
@@ -40,10 +40,16 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 
 == Changelog ==
 
+= 1.0.1 =
+* Made function names more unique
+
 = 1.0 =
 * Stable public release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Made function names more unique to avoid conflicts with other plugins
 
 = 1.0 =
 Stable public release
