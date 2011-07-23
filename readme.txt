@@ -15,7 +15,7 @@ This plugin allows you to wrap certain parts of your post content in a shortcode
 For example, if you have a competition that ends on 12/31/2012, you can use:
 
 `[expires off="2013-01-01"]Please enter our competition[/expires]
-[showafter on="2013-01-01"]Sorry, this competition has closed[/closed]`
+[showafter on="2013-01-01"]Sorry, this competition has closed[/showafter]`
 
 This is because on the 31st, you still want to be advertising the competition and you don't want to say its closed until the 1st of January.
 
