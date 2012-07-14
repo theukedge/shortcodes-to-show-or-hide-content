@@ -3,7 +3,7 @@ Contributors: thewanderingbrit
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB5AQD4WA8NK6
 Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode
 Requires at least: 2.5
-Tested up to: 3.3.1
+Tested up to: 3.4.1
 Stable tag: 1.0.2
 
 Creates shortcodes which you can wrap around text, which specify at what date or time that content should appear or disappear. Great for competitions
