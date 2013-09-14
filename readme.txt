@@ -1,6 +1,6 @@
 === Show/Hide Content at Set Time ===
 Contributors: thewanderingbrit
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB5AQD4WA8NK6
+Donate link: https://www.theukedge.com/donate/
 Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode
 Requires at least: 2.5
 Tested up to: 3.4.1
@@ -30,7 +30,7 @@ Bear in mind that by just entering a date, it will assume a time of midnight at 
 
 Thanks to [Alex King](http://alexking.org "Alex King") and [Crowd Favorite](http://www.crowdfavorite.com "Crowd Favorite") for their original code in the [Expiring Content Shortcode](http://wordpress.org/extend/plugins/expiring-content-shortcode/ "Expiring Content Shortcode").
 
-Check out [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials") for more plugins and tutorials.
+I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](http://www.thewpbutler.com), a service for keeping your site maintained, backup up, updated and secure.
 
 == Installation ==
 
