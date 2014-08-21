@@ -1,34 +1,74 @@
 === Show/Hide Content at Set Time ===
+
 Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/
-Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode
+Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month
 Requires at least: 2.5
-Tested up to: 3.7
-Stable tag: 1.0.2
+Tested up to: 3.9.2
+Stable tag: 2.0
+License: GPLv2
 
-Creates shortcodes which you can wrap around text, which specify at what date or time that content should appear or disappear. Great for competitions
+Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
 
 == Description ==
 
-This plugin allows you to wrap certain parts of your post content in a shortcode and enter a date or time when that content should either appear, or disappear.
+This plugin provides shortcodes allowing you to display content or hide content at given dates and times. You can also combine the two to show some content at a given time, and then hide it at another time.
 
-For example, if you have a competition that ends on 12/31/2012, you can use:
+There's also a separate shortcode if you want to repeat a schedule for showing and hiding content - for example to only show information about a radio show while it's on air.
 
-`[expires off="2013-01-01"]Please enter our competition[/expires]
-[showafter on="2013-01-01"]Sorry, this competition has closed[/showafter]`
+= Usage - single use =
 
-This is because on the 31st, you still want to be advertising the competition and you don't want to say its closed until the 1st of January.
+To show or hide content at one point in time, you can use the `[time-restrict]` shortcode. For example:
+
+`[time-restrict hide="2015-01-01"]Please enter our competition[/time-restrict]
+[time-restrict show="2015-01-01"]Sorry, this competition has closed[/time-restrict]`
+
+Note that this will cause the first message to appear on or before Dec 31, 2014 and the second message will appear on or after Jan 1st, 2015.
 
 You can use any date or time string [supported by PHP](http://www.php.net/manual/en/datetime.formats.php "PHP Date and Time strings"), such as:
 
-`[expires off="10 September 2012"]Will expire on 09/10/2012[/expires]
-[expires off="2012-09-10"]Will expire on 09/10/2012[/expires]
-[expires off="Septmber 10th, 2012"]Will expire on 09/10/2012[/expires]
-[showafter on="2012.09.10 18:00:00"]Will show after 09/10/2012 at 6pm[/showafter]`
+`[time-restrict hide="10 September 2014"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict hide="2014-09-10"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict hide="Septmber 10th, 2014"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict show="2014.09.10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
 
-Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (12:00:00AM), not the end of the day. If you would prefer to show the content for the rest of today, then you should set your expiration date to tomorrow.
+You can also combine starting and ending dates for the same piece of content. So if you want some content to appear between January 1st and January 10th, you could do the following:
 
-Thanks to [Alex King](http://alexking.org "Alex King") and [Crowd Favorite](http://www.crowdfavorite.com "Crowd Favorite") for their original code in the [Expiring Content Shortcode](http://wordpress.org/extend/plugins/expiring-content-shortcode/ "Expiring Content Shortcode").
+`[time-restrict show="2015-01-01" hide="2015-01-11"]This is a limited time offer[/time-restrict]`
+
+= Usage - repeating schedule =
+
+To show and hide content on a recurring schedule, you can use the `[time-restrict-repeat]` shortcode. Your options are a daily, weekly and monthly schedule.
+
+A daily schedule takes the following form:
+
+`[time-restrict-repeat type="daily" ontime="09:00:00" offtime="17:00:00"]Working 9 to 5[/time-restrict-repeat]`
+
+Note that you can also cross over midnight, so to only show something from 10PM to 5AM, you can use:
+
+`[time-restrict-repeat type="daily" ontime="22:00:00" offtime="05:00:00"]For the night owls[/time-restrict-repeat]`
+
+A weekly schedule takes the following form:
+
+`[time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]The work week[/time-restrict-repeat]`
+
+You can also specify start and stop times if you want (it will assume starting at 00:00:00 and ending at 23:59:59 if these are left out, like above):
+
+`[time-restrict-repeat type="weekly" onday="Friday" offday="Monday" ontime="17:00:00" offtime="08:00:00"]It's the weekend baby![/time-restrict-repeat]`
+
+And lastly, a monthly schedule takes the following form:
+
+`[time-restrict-repeat type="monthly" ondate="01" offdate="07"]The first week of the month[/time-restrict-repeat]`
+
+You can both cross over the end of the month, and apply times to your start and end dates, e.g.
+
+`[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]We are exceptionally busy at the end of each billing cycle. Please bear with us![/time-restrict-repeat]`
+
+= Things to bear in mind =
+
+Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (00:00:00), not the end of the day. If you would prefer to show the content for the rest of today, then you should set your expiration date to tomorrow.
+
+The time used by the plugin is your site's local time (check in Settings > General) since version 2.0 (server time prior to that).
 
 I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](http://www.thewpbutler.com), a service for keeping your site maintained, backup up, updated and secure.
 
@@ -46,6 +86,14 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 
 == Changelog ==
 
+= 2.0 =
+* New combined `[time-restrict]` shortcode allows for hide and show times for the same piece of content
+* New `[time-restrict-repeat]` shortcode allows you to show and hide content on a daily, weekly or monthly recurring basis
+* Code improvements
+* Legacy shortcode support
+* Enables nesting shortcodes within new shortcodes
+* Plugin now respects site's local time, rather than server time
+
 = 1.0.2 =
 * Code revisions
 
@@ -56,6 +104,9 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 * Stable public release
 
 == Upgrade Notice ==
+
+= 2.0 =
+New combined shortcode (`[time-restrict]`) and new shortcode for a repeating show/hide schedule (`[time-restrict-repeat]`) - see plugin page for usage details. Old shortcode (`[expires]` and `[showafter]`) will continue to work.
 
 = 1.0.2 =
 Code revisions for more stability
