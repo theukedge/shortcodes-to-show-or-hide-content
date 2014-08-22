@@ -66,7 +66,7 @@ You can both cross over the end of the month, and apply times to your start and 
 
 If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions: for example, showing a message during business hours only on Monday to Friday:
 
-`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday”]Our store is currently open[/time-restrict-repeat][/time-restrict-repeat]`
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat][/time-restrict-repeat]`
 
 = Things to bear in mind =
 
