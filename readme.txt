@@ -64,6 +64,10 @@ You can both cross over the end of the month, and apply times to your start and 
 
 `[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]We are exceptionally busy at the end of each billing cycle. Please bear with us![/time-restrict-repeat]`
 
+If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions: for example, showing a message during business hours only on Monday to Friday:
+
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday”]Our store is currently open[/time-restrict-repeat][/time-restrict-repeat]`
+
 = Things to bear in mind =
 
 Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (00:00:00), not the end of the day. If you would prefer to show the content for the rest of today, then you should set your expiration date to tomorrow.
