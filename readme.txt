@@ -5,7 +5,7 @@ Donate link: https://www.theukedge.com/donate/
 Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
 Requires at least: 2.5
 Tested up to: 4.0
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2
 
 Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
