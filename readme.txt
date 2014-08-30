@@ -2,9 +2,9 @@
 
 Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/
-Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month
+Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
 Requires at least: 2.5
-Tested up to: 3.9.2
+Tested up to: 4.0
 Stable tag: 2.0
 License: GPLv2
 
@@ -20,21 +20,21 @@ There's also a separate shortcode if you want to repeat a schedule for showing a
 
 To show or hide content at one point in time, you can use the `[time-restrict]` shortcode. For example:
 
-`[time-restrict hide="2015-01-01"]Please enter our competition[/time-restrict]
-[time-restrict show="2015-01-01"]Sorry, this competition has closed[/time-restrict]`
+`[time-restrict off="2015-01-01"]Please enter our competition[/time-restrict]
+[time-restrict on="2015-01-01"]Sorry, this competition has closed[/time-restrict]`
 
 Note that this will cause the first message to appear on or before Dec 31, 2014 and the second message will appear on or after Jan 1st, 2015.
 
 You can use any date or time string [supported by PHP](http://www.php.net/manual/en/datetime.formats.php "PHP Date and Time strings"), such as:
 
-`[time-restrict hide="10 September 2014"]Will expire on 09/10/2014[/time-restrict]
-[time-restrict hide="2014-09-10"]Will expire on 09/10/2014[/time-restrict]
-[time-restrict hide="Septmber 10th, 2014"]Will expire on 09/10/2014[/time-restrict]
-[time-restrict show="2014.09.10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
+`[time-restrict off="10 September 2014"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict off="2014-09-10"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict off="Septmber 10th, 2014"]Will expire on 09/10/2014[/time-restrict]
+[time-restrict on="2014.09.10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
 
 You can also combine starting and ending dates for the same piece of content. So if you want some content to appear between January 1st and January 10th, you could do the following:
 
-`[time-restrict show="2015-01-01" hide="2015-01-11"]This is a limited time offer[/time-restrict]`
+`[time-restrict on="2015-01-01" off="2015-01-11"]This is a limited time offer[/time-restrict]`
 
 = Usage - repeating schedule =
 
@@ -89,6 +89,10 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin.
 
 == Changelog ==
+
+= 2.1 =
+* Revised code to allow for onday and offday being the same. Same for ondate and offdate.
+* Changed attributes for `[time-restrict]` shortcode to be more in line with the rest of the plugin. Now using 'on' and 'off' instead of 'show' and 'hide', though the show and hide attributes will continue to work.
 
 = 2.0 =
 * New combined `[time-restrict]` shortcode allows for hide and show times for the same piece of content

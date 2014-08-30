@@ -3,19 +3,29 @@
 function time_restricted_shortcode( $atts, $content ) {
 	extract( shortcode_atts(
 		array(
-			'show' => '',
-			'hide' => '',
+			'show' => '', // retired in favour of 'on' for better consistency
+			'hide' => '', // retired in favour of 'off' for better consistency
+			'on' => '',
+			'off' => '',
 		), $atts )
 	);
 
 	$showit = 0; // set some defaults
 	$hideit = 1;
 
-	if( empty( $show ) || strtotime( $show ) < current_time( 'timestamp' ) ) { // if show time isn't set, or has already passed, show the content
+	if( empty( $on ) && !empty( $show ) ) { //  replace 'show' attribute with 'on'
+		$on = $show;
+	}
+
+	if( empty( $off ) && !empty( $hide ) ) { //  replace 'hide' attribute with 'off'
+		$off = $hide;
+	}
+
+	if( empty( $on ) || strtotime( $on ) < current_time( 'timestamp' ) ) { // if on time isn't set, or has already passed, show the content
 		$showit = 1;
 	}
 
-	if( empty( $hide ) || strtotime( $hide ) > current_time( 'timestamp' ) ) {  // if hide time isn't set, or is in the future, show the content
+	if( empty( $off ) || strtotime( $off ) > current_time( 'timestamp' ) ) {  // if off time isn't set, or is in the future, show the content
 		$hideit = 0;
 	}
 
@@ -56,19 +66,21 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 	} elseif( $type == 'monthly' && $ondate < $offdate ) { // dates do not cross months
 		if( $ondate < $todaysdate && $offdate > $todaysdate ) { // today is between show dates
 			$showit = 1;
-		} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on day and on time has passed
+		} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 			$showit = 1;
-		} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off day and off time hasn't yet passed
+		} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
 			$showit = 1;
 		}
 	} elseif( $type == 'monthly' && $ondate > $offdate ) { // dates cross months
 		if( $ondate < $todaysdate || $offdate < $todaysdate ) { // today is between show dates
 			$showit = 1;
-		} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on day and on time has passed
+		} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 			$showit = 1;
-		} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off day and off time hasn't yet passed
+		} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
 			$showit = 1;
 		}
+	} elseif( $type == 'monthly' && $ondate == $offdate && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same date, and within show times
+		$showit =1;
 	}
 
 	if( $type == 'weekly' && ( empty( $onday ) || empty( $offday ) ) ) { // show content if not all required attributes set
@@ -89,6 +101,8 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 		} elseif( $offwday == $todaysday && $offtime > $currenttime ) { // today is off day and off time hasn't yet passed
 			$showit = 1;
 		}
+	} elseif( $type == 'weekly' && $onwday == $offwday && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same day, and within show times
+		$showit = 1;
 	}
 
 	if( $type == 'daily' && ( empty( $ontime ) || empty( $offtime ) ) ) { //show content is not all required attributes set
