@@ -79,7 +79,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 		} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
 			$showit = 1;
 		}
-	} elseif( $type == 'monthly' && $ondate == $offdate && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same date, and within show times
+	} elseif( $type == 'monthly' && $ondate == $offdate && $ondate == $todaysdate && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same date (today), and within show times
 		$showit =1;
 	}
 
@@ -101,7 +101,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 		} elseif( $offwday == $todaysday && $offtime > $currenttime ) { // today is off day and off time hasn't yet passed
 			$showit = 1;
 		}
-	} elseif( $type == 'weekly' && $onwday == $offwday && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same day, and within show times
+	} elseif( $type == 'weekly' && $onwday == $offwday && $onwday == $todaysday && $ontime < $currenttime && $offtime > $currenttime ) { // on and off on same day (today), and within show times
 		$showit = 1;
 	}
 
