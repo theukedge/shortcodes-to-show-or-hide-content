@@ -90,6 +90,9 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 
 == Changelog ==
 
+= 2.1.1 =
+* Fixed error where content would show all the time when either onday and offday matched, or offdate and ondate matched.
+
 = 2.1 =
 * Revised code to allow for onday and offday being the same. Same for ondate and offdate.
 * Changed attributes for `[time-restrict]` shortcode to be more in line with the rest of the plugin. Now using 'on' and 'off' instead of 'show' and 'hide', though the show and hide attributes will continue to work.
@@ -112,6 +115,9 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 * Stable public release
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+Now allows for onday and offday being the same (show content for one whole day, or a part of a single day, every week, or every month). Updated show and hide attributes to on and off, for better uniformity.
 
 = 2.0 =
 New combined shortcode (`[time-restrict]`) and new shortcode for a repeating show/hide schedule (`[time-restrict-repeat]`) - see plugin page for usage details. Old shortcode (`[expires]` and `[showafter]`) will continue to work.
