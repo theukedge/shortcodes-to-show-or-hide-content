@@ -82,7 +82,7 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 
 == Frequently Asked Questions ==
 
-= How do I get the plugin to do *this*? =
+= How do I get the plugin to do "this"? =
 
 Check the Description tag for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](http://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
 
