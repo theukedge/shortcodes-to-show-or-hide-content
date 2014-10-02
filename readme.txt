@@ -84,7 +84,7 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 
 = How do I get the plugin to do "this"? =
 
-Check the Description tag for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](http://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
+Check the Description tab for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](http://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
 
 = Something's not right. What should I do? =
 
