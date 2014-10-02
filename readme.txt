@@ -23,13 +23,13 @@ To show or hide content at one point in time, you can use the `[time-restrict]` 
 `[time-restrict off="2015-01-01"]Please enter our competition[/time-restrict]
 [time-restrict on="2015-01-01"]Sorry, this competition has closed[/time-restrict]`
 
-Note that this will cause the first message to appear on or before Dec 31, 2014 and the second message will appear on or after Jan 1st, 2015.
+If you do not enter a time with the date, it will default to 00:00:00, so in the above example, the first message will show up until 2015-01-01 00:00:00 (i.e. until the first second of 2015) and the second message will show up from 2015-01-01 00:00:00 (i.e. from the first second of 2015)
 
 You can use any date or time string [supported by PHP](http://www.php.net/manual/en/datetime.formats.php "PHP Date and Time strings"), such as:
 
-`[time-restrict off="10 September 2014"]Will expire on 09/10/2014[/time-restrict]
-[time-restrict off="2014-09-10"]Will expire on 09/10/2014[/time-restrict]
-[time-restrict off="Septmber 10th, 2014"]Will expire on 09/10/2014[/time-restrict]
+`[time-restrict off="10 September 2014"]Will display until 09/10/2014[/time-restrict]
+[time-restrict off="2014-09-10"]Will display until 09/10/2014[/time-restrict]
+[time-restrict off="Septmber 10th, 2014"]Will display until 09/10/2014[/time-restrict]
 [time-restrict on="2014.09.10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
 
 You can also combine starting and ending dates for the same piece of content. So if you want some content to appear between January 1st and January 10th, you could do the following:
@@ -64,13 +64,11 @@ You can both cross over the end of the month, and apply times to your start and 
 
 `[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]We are exceptionally busy at the end of each billing cycle. Please bear with us![/time-restrict-repeat]`
 
-If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions: for example, showing a message during business hours only on Monday to Friday:
+If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions: for example, showing a message during business hours only on Monday to Friday (note that you only need one closing shortcode tag):
 
-`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat][/time-restrict-repeat]`
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat]`
 
 = Things to bear in mind =
-
-Bear in mind that by just entering a date, it will assume a time of midnight at the beginning of that date. So if you set your expiration date to today, it will expire at the beginning of today (00:00:00), not the end of the day. If you would prefer to show the content for the rest of today, then you should set your expiration date to tomorrow.
 
 The time used by the plugin is your site's local time (check in Settings > General) since version 2.0 (server time prior to that).
 
@@ -84,9 +82,13 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 
 == Frequently Asked Questions ==
 
+= How do I get the plugin to do *this*? =
+
+Check the Description tag for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](http://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
+
 = Something's not right. What should I do? =
 
-Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin.
+Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
 
 == Changelog ==
 
