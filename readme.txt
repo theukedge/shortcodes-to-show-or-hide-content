@@ -5,7 +5,7 @@ Donate link: https://www.theukedge.com/donate/
 Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
 Requires at least: 2.5
 Tested up to: 4.0
-Stable tag: 2.1.1
+Stable tag: 2.2
 License: GPLv2
 
 Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
@@ -64,9 +64,11 @@ You can both cross over the end of the month, and apply times to your start and 
 
 `[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]We are exceptionally busy at the end of each billing cycle. Please bear with us![/time-restrict-repeat]`
 
-If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions: for example, showing a message during business hours only on Monday to Friday (note that you only need one closing shortcode tag):
+If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions. Since you cannot nest shortcodes with the same name, you need to add -2 or -3 to time-restrict-repeat in your shortcode (e.g. `[time-restrict-repeat-2]`).
 
-`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat]`
+For example, showing a message during business hours only on Monday to Friday:
+
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat-2 type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat-2][/time-restrict-repeat]`
 
 = Things to bear in mind =
 
@@ -91,6 +93,9 @@ Check the Description tab for several examples showing what the plugin can do. I
 Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
 
 == Changelog ==
+
+= 2.2 =
+* Fixed inability to nest shortcodes by introducing distinct copies of the time-restrict-repeat shortcode (`[time-restrict-repeat-2]` and `[time-restrict-repeat-3]`)
 
 = 2.1.1 =
 * Fixed error where content would show all the time when either onday and offday matched, or offdate and ondate matched.
@@ -117,6 +122,9 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 * Stable public release
 
 == Upgrade Notice ==
+
+= 2.2 =
+Fixed issue with nesting multiple `[time-restrict-repeat]` shortcodes to achieve more complex scheduling. See Description tab for more details on how to use these.
 
 = 2.1.1 =
 Now allows for onday and offday being the same (show content for one whole day, or a part of a single day, every week, or every month). Updated show and hide attributes to on and off, for better uniformity.
