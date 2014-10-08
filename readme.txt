@@ -12,6 +12,8 @@ Shortcodes to wrap around text, which specify at what date or time that content 
 
 == Description ==
 
+**Like this plugin?** Consider [leaving a quick review](https://wordpress.org/support/view/plugin-reviews/shortcodes-to-show-or-hide-content "Review Show/Hide Content at Set Time") or writing about how you've used it on your site - [send me a link](https://www.theukedge.com/contact/ "Contact Dave") to that write up if you do.
+
 This plugin provides shortcodes allowing you to display content or hide content at given dates and times. You can also combine the two to show some content at a given time, and then hide it at another time.
 
 There's also a separate shortcode if you want to repeat a schedule for showing and hiding content - for example to only show information about a radio show while it's on air.
@@ -34,7 +36,9 @@ You can use any date or time string [supported by PHP](http://www.php.net/manual
 
 You can also combine starting and ending dates for the same piece of content. So if you want some content to appear between January 1st and January 10th, you could do the following:
 
-`[time-restrict on="2015-01-01" off="2015-01-11"]This is a limited time offer[/time-restrict]`
+`[time-restrict on="2015-01-01" off="2015-01-11"]
+This is a limited time offer
+[/time-restrict]`
 
 = Usage - repeating schedule =
 
@@ -42,39 +46,55 @@ To show and hide content on a recurring schedule, you can use the `[time-restric
 
 A daily schedule takes the following form:
 
-`[time-restrict-repeat type="daily" ontime="09:00:00" offtime="17:00:00"]Working 9 to 5[/time-restrict-repeat]`
+`[time-restrict-repeat type="daily" ontime="09:00:00" offtime="17:00:00"]
+Working 9 to 5
+[/time-restrict-repeat]`
 
 Note that you can also cross over midnight, so to only show something from 10PM to 5AM, you can use:
 
-`[time-restrict-repeat type="daily" ontime="22:00:00" offtime="05:00:00"]For the night owls[/time-restrict-repeat]`
+`[time-restrict-repeat type="daily" ontime="22:00:00" offtime="05:00:00"]
+For the night owls
+[/time-restrict-repeat]`
 
 A weekly schedule takes the following form:
 
-`[time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]The work week[/time-restrict-repeat]`
+`[time-restrict-repeat type="weekly" onday="Monday" offday="Friday"]
+The work week
+[/time-restrict-repeat]`
 
 You can also specify start and stop times if you want (it will assume starting at 00:00:00 and ending at 23:59:59 if these are left out, like above):
 
-`[time-restrict-repeat type="weekly" onday="Friday" offday="Monday" ontime="17:00:00" offtime="08:00:00"]It's the weekend baby![/time-restrict-repeat]`
+`[time-restrict-repeat type="weekly" onday="Friday" offday="Monday" ontime="17:00:00" offtime="08:00:00"]
+It's the weekend baby!
+[/time-restrict-repeat]`
 
 And lastly, a monthly schedule takes the following form:
 
-`[time-restrict-repeat type="monthly" ondate="01" offdate="07"]The first week of the month[/time-restrict-repeat]`
+`[time-restrict-repeat type="monthly" ondate="01" offdate="07"]
+The first week of the month
+[/time-restrict-repeat]`
 
 You can both cross over the end of the month, and apply times to your start and end dates, e.g.
 
-`[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]We are exceptionally busy at the end of each billing cycle. Please bear with us![/time-restrict-repeat]`
+`[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]
+We are exceptionally busy at the end of each billing cycle. Please bear with us!
+[/time-restrict-repeat]`
 
 If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions. Since you cannot nest shortcodes with the same name, you need to add -2 or -3 to time-restrict-repeat in your shortcode (e.g. `[time-restrict-repeat-2]`).
 
 For example, showing a message during business hours only on Monday to Friday:
 
-`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"][time-restrict-repeat-2 type="weekly" onday="Monday" offday="Friday"]Our store is currently open[/time-restrict-repeat-2][/time-restrict-repeat]`
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00"]
+[time-restrict-repeat-2 type="weekly" onday="Monday" offday="Friday"]
+Our store is currently open
+[/time-restrict-repeat-2]
+[/time-restrict-repeat]`
 
 = Things to bear in mind =
 
-The time used by the plugin is your site's local time (check in Settings > General) since version 2.0 (server time prior to that).
+The time used by the plugin is your site's local time (check in Settings > General).
 
-I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](http://www.thewpbutler.com), a service for keeping your site maintained, backup up, updated and secure.
+I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](https://www.thewpbutler.com "WordPress Maintenance Services"), a service for keeping your site maintained, backed up, updated and secure.
 
 == Installation ==
 
@@ -86,11 +106,11 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 
 = How do I get the plugin to do "this"? =
 
-Check the Description tab for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](http://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
+Check the [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](https://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
 
 = Something's not right. What should I do? =
 
-Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
+Please [contact me](https://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
 
 == Changelog ==
 
@@ -124,7 +144,7 @@ Please [contact me](http://www.theukedge.com/contact/ "Contact The UK Edge") if 
 == Upgrade Notice ==
 
 = 2.2 =
-Fixed issue with nesting multiple `[time-restrict-repeat]` shortcodes to achieve more complex scheduling. See Description tab for more details on how to use these.
+Fixed issue with nesting multiple `[time-restrict-repeat]` shortcodes to achieve more complex scheduling. See [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for more details on how to use these.
 
 = 2.1.1 =
 Now allows for onday and offday being the same (show content for one whole day, or a part of a single day, every week, or every month). Updated show and hide attributes to on and off, for better uniformity.
