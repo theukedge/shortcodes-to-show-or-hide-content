@@ -1,8 +1,8 @@
 === Show/Hide Content at Set Time ===
 
 Contributors: thewanderingbrit
-Donate link: https://www.theukedge.com/donate/
-Tags: time, date, show hide, expire, active, activate, competition, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
+Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
+Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
 Requires at least: 2.5
 Tested up to: 4.0
 Stable tag: 2.2
@@ -12,7 +12,7 @@ Shortcodes to wrap around text, which specify at what date or time that content 
 
 == Description ==
 
-**Like this plugin?** Consider [leaving a quick review](https://wordpress.org/support/view/plugin-reviews/shortcodes-to-show-or-hide-content "Review Show/Hide Content at Set Time") or writing about how you've used it on your site - [send me a link](https://www.theukedge.com/contact/ "Contact Dave") to that write up if you do.
+**Like this plugin?** Consider [leaving a quick review](https://wordpress.org/support/view/plugin-reviews/shortcodes-to-show-or-hide-content "Review Show/Hide Content at Set Time") or writing about how you've used it on your site - [send me a link](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact Dave") to that write up if you do.
 
 This plugin provides shortcodes allowing you to display content or hide content at given dates and times. You can also combine the two to show some content at a given time, and then hide it at another time.
 
@@ -94,7 +94,7 @@ Our store is currently open
 
 The time used by the plugin is your site's local time (check in Settings > General).
 
-I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](https://www.thewpbutler.com "WordPress Maintenance Services"), a service for keeping your site maintained, backed up, updated and secure.
+I also run [Do It With WordPress](http://www.doitwithwp.com/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=my-other-sites "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](https://www.thewpbutler.com/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=wordpress-services "WordPress Maintenance Services"), a service for keeping your site maintained, backed up, updated and secure.
 
 == Installation ==
 
@@ -106,11 +106,11 @@ I also run [Do It With WordPress](http://www.doitwithwp.com "WordPress Tutorials
 
 = How do I get the plugin to do "this"? =
 
-Check the [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](https://www.theukedge.com/contact/ "Contact The UK Edge") and I'd be glad to help you out.
+Check the [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") and I'd be glad to help you out.
 
 = Something's not right. What should I do? =
 
-Please [contact me](https://www.theukedge.com/contact/ "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
+Please [contact me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
 
 == Changelog ==
 
