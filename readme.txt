@@ -14,6 +14,8 @@ Shortcodes to wrap around text, which specify at what date or time that content 
 
 **Like this plugin?** Consider [leaving a quick review](https://wordpress.org/support/view/plugin-reviews/shortcodes-to-show-or-hide-content "Review Show/Hide Content at Set Time") or writing about how you've used it on your site - [send me a link](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact Dave") to that write up if you do.
 
+This plugin is maintained on [GitHub](https://github.com/theukedge/shortcodes-to-show-or-hide-content), so feel free to use the repository for reporting issues, submitting feature requests and submitting pull requests.
+
 This plugin provides shortcodes allowing you to display content or hide content at given dates and times. You can also combine the two to show some content at a given time, and then hide it at another time.
 
 There's also a separate shortcode if you want to repeat a schedule for showing and hiding content - for example to only show information about a radio show while it's on air.
@@ -106,11 +108,17 @@ I also run [Do It With WordPress](http://www.doitwithwp.com/?utm_source=wordpres
 
 = How do I get the plugin to do "this"? =
 
-Check the [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for several examples showing what the plugin can do. If you're still stuck, [open a support ticket](https://wordpress.org/support/plugin/shortcodes-to-show-or-hide-content), or [send me an email](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") and I'd be glad to help you out.
+Check the [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for several examples showing what the plugin can do.
+
+If you're still stuck, the best thing to do is to submit an issue on [GitHub](https://github.com/theukedge/shortcodes-to-show-or-hide-content/issues). If you don't have a GitHub account, then [get in touch with me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") and I'd be glad to help you out.
+
+= Can you add a feature to this widget? =
+
+Probably. The best thing to do is to create a new feature request on [GitHub](https://github.com/theukedge/shortcodes-to-show-or-hide-content/issues). If you don't have a GitHub account, then [tell me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") what this widget should do that it doesn't currently.
 
 = Something's not right. What should I do? =
 
-Please [contact me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") if you have any problems with this plugin - I want to know if the plugin is broken so that I can fix it for you, and everyone else.
+The best thing to do is to submit an issue on [GitHub](https://github.com/theukedge/shortcodes-to-show-or-hide-content/issues). If you don't have a GitHub account, then [get in touch with me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") and I'll see about getting it fixed.
 
 == Changelog ==
 
