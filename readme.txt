@@ -31,10 +31,10 @@ If you do not enter a time with the date, it will default to 00:00:00, so in the
 
 You can use any date or time string [supported by PHP](http://www.php.net/manual/en/datetime.formats.php "PHP Date and Time strings"), such as:
 
-`[time-restrict off="10 September 2014"]Will display until 09/10/2014[/time-restrict]
+`[time-restrict off="September 10th, 2014"]Will display until 09/10/2014[/time-restrict]
 [time-restrict off="2014-09-10"]Will display until 09/10/2014[/time-restrict]
-[time-restrict off="Septmber 10th, 2014"]Will display until 09/10/2014[/time-restrict]
-[time-restrict on="2014.09.10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
+[time-restrict off="10-Septmber 2014"]Will display until 09/10/2014[/time-restrict]
+[time-restrict on="2014/09/10 18:00:00"]Will show after 09/10/2014 at 6pm[/time-restrict]`
 
 You can also combine starting and ending dates for the same piece of content. So if you want some content to appear between January 1st and January 10th, you could do the following:
 
