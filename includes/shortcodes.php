@@ -48,7 +48,9 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 			'onday' => '',
 			'offday' => '',
 			'ondate' => '',
-			'offdate' => ''
+			'offdate' => '',
+			'onmonth' => '',
+			'offmonth' => ''
 		), $atts )
 	);
 
@@ -56,10 +58,85 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 
 	$onwday = date( 'w', strtotime( $onday ) ); // convert day to PHP numerical representation of day (w)
 	$offwday = date( 'w', strtotime( $offday ) );
+	$onmonth = date( 'n', strtotime( $onmonth ) ); // make sure month is in numberical format
+	$offmonth = date( 'n', strtotime( $offmonth ) );
 
 	$todaysday = date ( 'w', current_time( 'timestamp' ) ); // what's the time, Mr. Wolf?
 	$todaysdate = date( 'j', current_time( 'timestamp' ) );
+	$todaysmonth = date( 'n', current_time( 'timestamp' ) );
 	$currenttime = date( 'H:i:s', current_time( 'timestamp' ) );
+
+	if( $type == 'annually' && ( empty( $ondate ) || empty( $offdate ) || empty( $onmonth ) || empty( $offmonth ) ) ) { // show content if not all required attributes set
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth < $offmonth ) { // months do not cross years
+		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on earlier
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth > $offmonth ) { // months cross years
+		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on last year
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth == $todaysmonth ) { // turns on and off this month
+		if( $ondate < $todaysdate ) { // today is after on day
+			if( $offdate > $todaysdate ) { // off day hasn't yet happened
+				$showit = 1;
+			} elseif( $offdate < $ondate ) { // doesn't turn off until next year
+				$showit = 1;
+			} elseif ( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate > $todaysdate) { // today is before on day
+			if( $offdate < $ondate && $offdate > $todaysdate ) { // turns off later this month after being on for nearly a year
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // turns off today after being on for nearly a year
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate == $todaysdate ) { // today is on day
+			if( $offdate > $todaysdate && $ontime < $currenttime ) { // turns off later this month and on time has passed
+				$showit = 1;
+			} elseif( $offdate < $todaydate && $ontime < $currenttime ) { // turns off next year and on time has passed
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime < $currenttime && $offtime > $currenttime ) { // turns on and off today and is between show times
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $ontime < $currenttime ) { // turns on for almost a full year, less a few hours (earlier today)
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $offtime > $currenttime ) { // turns on for almost a full year, less a few hours (later today)
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate < $ondate ) { // turns on and off the same month (but not this month) and is on for most of the year
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate == $ondate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+		$showit = 1;
+	}
 
 	if( $type == 'monthly' && ( empty( $ondate ) || empty( $offdate ) ) ) { // show content if not all required attributes set
 		$showit = 1;
@@ -144,10 +221,85 @@ function repeat_time_restricted_shortcode_2( $atts, $content ) {
 
 	$onwday = date( 'w', strtotime( $onday ) ); // convert day to PHP numerical representation of day (w)
 	$offwday = date( 'w', strtotime( $offday ) );
+	$onmonth = date( 'n', strtotime( $onmonth ) ); // make sure month is in numberical format
+	$offmonth = date( 'n', strtotime( $offmonth ) );
 
 	$todaysday = date ( 'w', current_time( 'timestamp' ) ); // what's the time, Mr. Wolf?
 	$todaysdate = date( 'j', current_time( 'timestamp' ) );
+	$todaysmonth = date( 'n', current_time( 'timestamp' ) );
 	$currenttime = date( 'H:i:s', current_time( 'timestamp' ) );
+
+	if( $type == 'annually' && ( empty( $ondate ) || empty( $offdate ) || empty( $onmonth ) || empty( $offmonth ) ) ) { // show content if not all required attributes set
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth < $offmonth ) { // months do not cross years
+		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on earlier
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth > $offmonth ) { // months cross years
+		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on last year
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth == $todaysmonth ) { // turns on and off this month
+		if( $ondate < $todaysdate ) { // today is after on day
+			if( $offdate > $todaysdate ) { // off day hasn't yet happened
+				$showit = 1;
+			} elseif( $offdate < $ondate ) { // doesn't turn off until next year
+				$showit = 1;
+			} elseif ( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate > $todaysdate) { // today is before on day
+			if( $offdate < $ondate && $offdate > $todaysdate ) { // turns off later this month after being on for nearly a year
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // turns off today after being on for nearly a year
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate == $todaysdate ) { // today is on day
+			if( $offdate > $todaysdate && $ontime < $currenttime ) { // turns off later this month and on time has passed
+				$showit = 1;
+			} elseif( $offdate < $todaydate && $ontime < $currenttime ) { // turns off next year and on time has passed
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime < $currenttime && $offtime > $currenttime ) { // turns on and off today and is between show times
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $ontime < $currenttime ) { // turns on for almost a full year, less a few hours (earlier today)
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $offtime > $currenttime ) { // turns on for almost a full year, less a few hours (later today)
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate < $ondate ) { // turns on and off the same month (but not this month) and is on for most of the year
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate == $ondate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+		$showit = 1;
+	}
 
 	if( $type == 'monthly' && ( empty( $ondate ) || empty( $offdate ) ) ) { // show content if not all required attributes set
 		$showit = 1;
@@ -232,10 +384,85 @@ function repeat_time_restricted_shortcode_3( $atts, $content ) {
 
 	$onwday = date( 'w', strtotime( $onday ) ); // convert day to PHP numerical representation of day (w)
 	$offwday = date( 'w', strtotime( $offday ) );
+	$onmonth = date( 'n', strtotime( $onmonth ) ); // make sure month is in numberical format
+	$offmonth = date( 'n', strtotime( $offmonth ) );
 
 	$todaysday = date ( 'w', current_time( 'timestamp' ) ); // what's the time, Mr. Wolf?
 	$todaysdate = date( 'j', current_time( 'timestamp' ) );
+	$todaysmonth = date( 'n', current_time( 'timestamp' ) );
 	$currenttime = date( 'H:i:s', current_time( 'timestamp' ) );
+
+	if( $type == 'annually' && ( empty( $ondate ) || empty( $offdate ) || empty( $onmonth ) || empty( $offmonth ) ) ) { // show content if not all required attributes set
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth < $offmonth ) { // months do not cross years
+		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on earlier
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth > $offmonth ) { // months cross years
+		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
+			$showit = 1;
+		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
+			if( $ondate < $todaysdate ) { // on date has already passed 
+				$showit = 1;
+			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
+				$showit = 1;
+			}
+		} elseif( $offmonth == $todaysmonth ) { // turns off this month and on last year
+			if( $offdate > $todaysdate ) { // off date hasn't arrived yet
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth == $todaysmonth ) { // turns on and off this month
+		if( $ondate < $todaysdate ) { // today is after on day
+			if( $offdate > $todaysdate ) { // off day hasn't yet happened
+				$showit = 1;
+			} elseif( $offdate < $ondate ) { // doesn't turn off until next year
+				$showit = 1;
+			} elseif ( $offdate == $todaysdate && $offtime > $currenttime ) { // today is off date and off time hasn't yet passed
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate > $todaysdate) { // today is before on day
+			if( $offdate < $ondate && $offdate > $todaysdate ) { // turns off later this month after being on for nearly a year
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $offtime > $currenttime ) { // turns off today after being on for nearly a year
+				$showit = 1;
+			} elseif ( $ondate == $offdate && $offdate != $todaysdate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+				$showit = 1;
+			}
+		} elseif( $ondate == $todaysdate ) { // today is on day
+			if( $offdate > $todaysdate && $ontime < $currenttime ) { // turns off later this month and on time has passed
+				$showit = 1;
+			} elseif( $offdate < $todaydate && $ontime < $currenttime ) { // turns off next year and on time has passed
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime < $currenttime && $offtime > $currenttime ) { // turns on and off today and is between show times
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $ontime < $currenttime ) { // turns on for almost a full year, less a few hours (earlier today)
+				$showit = 1;
+			} elseif( $offdate == $todaysdate && $ontime > $offtime && $offtime > $currenttime ) { // turns on for almost a full year, less a few hours (later today)
+				$showit = 1;
+			}
+		}
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate < $ondate ) { // turns on and off the same month (but not this month) and is on for most of the year
+		$showit = 1;
+	} elseif( $type == 'annually' && $onmonth == $offmonth && $onmonth != $todaysmonth && $offdate == $ondate && $offtime < $ontime ) { // turns on for almost a full year, less a few hours
+		$showit = 1;
+	}
 
 	if( $type == 'monthly' && ( empty( $ondate ) || empty( $offdate ) ) ) { // show content if not all required attributes set
 		$showit = 1;
