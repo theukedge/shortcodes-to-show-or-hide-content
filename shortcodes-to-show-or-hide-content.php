@@ -9,7 +9,7 @@ Author URI: https://www.theukedge.com
 License: GPL2
 */
 
-/*  Copyright 2011  Dave Clements  (email : http://www.theukedge.com/contact/)
+/*  Copyright 2011  Dave Clements  (email : https://www.theukedge.com/contact/)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -25,6 +25,20 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+/* ---------------------------------- *
+ * constants
+ * ---------------------------------- */
 
-include( 'includes/shortcodes.php' ); // where the magic happens
-include( 'includes/retired-shortcodes.php' ); // legacy support for original shortcodes
+if ( !defined( 'SHOWHIDE_PLUGIN_DIR' ) ) {
+    define( 'SHOWHIDE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+}
+if ( !defined( 'SHOWHIDE_PLUGIN_URL' ) ) {
+    define( 'SHOWHIDE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+}
+
+/* ---------------------------------- *
+ * includes
+ * ---------------------------------- */
+
+include( SHOWHIDE_PLUGIN_DIR . 'includes/shortcodes.php' ); // where the magic happens
+include( SHOWHIDE_PLUGIN_DIR . 'includes/retired-shortcodes.php' ); // legacy support for original shortcodes
