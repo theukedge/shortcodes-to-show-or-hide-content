@@ -2,10 +2,10 @@
 
 Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
-Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on
+Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on, yearly, annually, annual, year
 Requires at least: 2.5
 Tested up to: 4.0
-Stable tag: 2.2
+Stable tag: 2.3
 License: GPLv2
 
 Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
@@ -44,7 +44,7 @@ This is a limited time offer
 
 = Usage - repeating schedule =
 
-To show and hide content on a recurring schedule, you can use the `[time-restrict-repeat]` shortcode. Your options are a daily, weekly and monthly schedule.
+To show and hide content on a recurring schedule, you can use the `[time-restrict-repeat]` shortcode. Your options are a daily, weekly, monthly or annual schedule.
 
 A daily schedule takes the following form:
 
@@ -70,7 +70,7 @@ You can also specify start and stop times if you want (it will assume starting a
 It's the weekend baby!
 [/time-restrict-repeat]`
 
-And lastly, a monthly schedule takes the following form:
+A monthly schedule takes the following form:
 
 `[time-restrict-repeat type="monthly" ondate="01" offdate="07"]
 The first week of the month
@@ -80,6 +80,18 @@ You can both cross over the end of the month, and apply times to your start and 
 
 `[time-restrict-repeat type="monthly" ondate="25" offdate="05" ontime="17:00:00" offtime="08:00:00"]
 We are exceptionally busy at the end of each billing cycle. Please bear with us!
+[/time-restrict-repeat]`
+
+And lastly, an annual schedule takes the following form:
+
+`[time-restrict-repeat type="annually" onmonth="June" offmonth="August" ondate="01" offdate="31"]
+I'm currently in the mountains enjoying the summer!
+[/time-restrict-repeat]`
+
+You can cross over the end of the month or even the end of the year, and apply times to your start and end dates, e.g.
+
+`[time-restrict-repeat type="annually" onmonth="December" ondate="24" offmonth="January" offdate="05" ontime="17:00:00" offtime="08:00:00"]
+Our employees are currently enjoying time with their families for Christmas. We'll be back after the New Year.
 [/time-restrict-repeat]`
 
 If you’re feeling creative, you can even nest shortcodes to account for multiple concurrent conditions. Since you cannot nest shortcodes with the same name, you need to add -2 or -3 to time-restrict-repeat in your shortcode (e.g. `[time-restrict-repeat-2]`).
@@ -122,6 +134,10 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
+= 2.3 =
+* Introduced recurring annual schedule (previously only monthly/weekly/daily). Just use type="annually" in your shortcodes.
+* Code improvements.
+
 = 2.2 =
 * Fixed inability to nest shortcodes by introducing distinct copies of the time-restrict-repeat shortcode (`[time-restrict-repeat-2]` and `[time-restrict-repeat-3]`)
 
@@ -150,6 +166,9 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 * Stable public release
 
 == Upgrade Notice ==
+
+= 2.3 =
+You can now create annual recurring schedules for your shortcodes using type="annually" in your shortcode. See [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for more details on how to use this.
 
 = 2.2 =
 Fixed issue with nesting multiple `[time-restrict-repeat]` shortcodes to achieve more complex scheduling. See [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for more details on how to use these.
