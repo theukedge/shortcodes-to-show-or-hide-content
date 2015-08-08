@@ -4,7 +4,7 @@ Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
 Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on, yearly, annually, annual, year
 Requires at least: 2.5
-Tested up to: 4.0
+Tested up to: 4.3
 Stable tag: 2.3
 License: GPLv2
 
