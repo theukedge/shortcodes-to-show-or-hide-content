@@ -72,7 +72,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
@@ -88,7 +88,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
@@ -213,7 +213,9 @@ function repeat_time_restricted_shortcode_2( $atts, $content ) {
 			'onday' => '',
 			'offday' => '',
 			'ondate' => '',
-			'offdate' => ''
+			'offdate' => '',
+			'onmonth' => '',
+			'offmonth' => ''
 		), $atts )
 	);
 
@@ -235,7 +237,7 @@ function repeat_time_restricted_shortcode_2( $atts, $content ) {
 		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
@@ -251,7 +253,7 @@ function repeat_time_restricted_shortcode_2( $atts, $content ) {
 		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
@@ -376,7 +378,9 @@ function repeat_time_restricted_shortcode_3( $atts, $content ) {
 			'onday' => '',
 			'offday' => '',
 			'ondate' => '',
-			'offdate' => ''
+			'offdate' => '',
+			'onmonth' => '',
+			'offmonth' => ''
 		), $atts )
 	);
 
@@ -398,7 +402,7 @@ function repeat_time_restricted_shortcode_3( $atts, $content ) {
 		if( $onmonth < $todaysmonth && $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off later
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
@@ -414,7 +418,7 @@ function repeat_time_restricted_shortcode_3( $atts, $content ) {
 		if( $onmonth < $todaysmonth || $offmonth > $todaysmonth ) { // today is in between show months
 			$showit = 1;
 		} elseif( $onmonth == $todaysmonth ) { // turns on this month and off next year
-			if( $ondate < $todaysdate ) { // on date has already passed 
+			if( $ondate < $todaysdate ) { // on date has already passed
 				$showit = 1;
 			} elseif( $ondate == $todaysdate && $ontime < $currenttime ) { // today is on date and on time has passed
 				$showit = 1;
