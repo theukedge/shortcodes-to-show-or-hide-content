@@ -5,7 +5,7 @@ Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medi
 Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on, yearly, annually, annual, year
 Requires at least: 2.5
 Tested up to: 4.3
-Stable tag: 2.3
+Stable tag: 2.3.1
 License: GPLv2
 
 Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
@@ -134,6 +134,12 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
+= 2.3.1 =
+
+Release date: August 31, 2015
+
+* Corrected an error in the weekly logic (props [Jérôme](https://github.com/Grome13))
+
 = 2.3 =
 
 Release date: December 5, 2014
@@ -181,6 +187,9 @@ Release date: August 22, 2014
 * Stable public release
 
 == Upgrade Notice ==
+
+= 2.3.1 =
+Corrected an error in the weekly logic
 
 = 2.3 =
 You can now create annual recurring schedules for your shortcodes using type="annually" in your shortcode. See [Description tab](https://wordpress.org/plugins/shortcodes-to-show-or-hide-content/description/) for more details on how to use this.

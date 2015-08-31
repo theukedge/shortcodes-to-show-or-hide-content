@@ -3,16 +3,16 @@
 Plugin Name: Shortcodes to show or hide content
 Plugin URI: https://github.com/theukedge/shortcodes-to-show-or-hide-content
 Description: Set a date/time to show or hide specific parts of a post's content
-Version: 2.3
+Version: 2.3.1
 Author: Dave Clements
 Author URI: https://www.theukedge.com
 License: GPL2
 */
 
-/*  Copyright 2011  Dave Clements  (email : https://www.theukedge.com/contact/)
+/*  Copyright 2015  Dave Clements  (email : https://www.theukedge.com/contact/)
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
+    it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
