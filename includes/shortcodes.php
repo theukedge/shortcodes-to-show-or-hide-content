@@ -171,7 +171,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 			$showit = 1;
 		}
 	} elseif( $type == 'weekly' && $onwday > $offwday ) { // days cross weeks
-		if( $onwday < $todaysday || $offwday < $todaysday ) { // today is between show days
+		if( $onwday < $todaysday || $offwday > $todaysday ) { // today is between show days
 			$showit = 1;
 		} elseif( $onwday == $todaysday && $ontime < $currenttime ) { // today is on day and on time has passed
 			$showit = 1;
@@ -336,7 +336,7 @@ function repeat_time_restricted_shortcode_2( $atts, $content ) {
 			$showit = 1;
 		}
 	} elseif( $type == 'weekly' && $onwday > $offwday ) { // days cross weeks
-		if( $onwday < $todaysday || $offwday < $todaysday ) { // today is between show days
+		if( $onwday < $todaysday || $offwday > $todaysday ) { // today is between show days
 			$showit = 1;
 		} elseif( $onwday == $todaysday && $ontime < $currenttime ) { // today is on day and on time has passed
 			$showit = 1;
@@ -501,7 +501,7 @@ function repeat_time_restricted_shortcode_3( $atts, $content ) {
 			$showit = 1;
 		}
 	} elseif( $type == 'weekly' && $onwday > $offwday ) { // days cross weeks
-		if( $onwday < $todaysday || $offwday < $todaysday ) { // today is between show days
+		if( $onwday < $todaysday || $offwday > $todaysday ) { // today is between show days
 			$showit = 1;
 		} elseif( $onwday == $todaysday && $ontime < $currenttime ) { // today is on day and on time has passed
 			$showit = 1;
