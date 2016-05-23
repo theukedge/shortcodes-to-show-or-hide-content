@@ -86,8 +86,8 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 
 	$showit = 0; // Set some defaults.
 
-	$onwday = date( 'w', strtotime( $onday ) ); // Convert day to PHP numerical representation of day (w).
-	$offwday = date( 'w', strtotime( $offday ) );
+	$onwday = date( 'w', strtotime( ucfirst( $onday ) ) ); // Convert day to PHP numerical representation of day (w).
+	$offwday = date( 'w', strtotime( ucfirst( $offday ) ) );
 	$onmonth = date( 'n', strtotime( $onmonth ) ); // Make sure month is in numberical format.
 	$offmonth = date( 'n', strtotime( $offmonth ) );
 
