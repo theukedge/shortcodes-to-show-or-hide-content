@@ -104,9 +104,20 @@ Our store is currently open
 [/time-restrict-repeat-2]
 [/time-restrict-repeat]`
 
+You can also define a message which should appear if your content is not showing by using the `else` attribute @since 2.5. For example, you could invite people to visit your store during opening hours and ask them come back soon otherwise, like this:
+
+`[time-restrict-repeat type="daily" ontime="08:00:00" offtime="17:00:00" else="We're currently closed. Come back and see us when we're open."]
+[time-restrict-repeat-2 type="weekly" onday="Monday" offday="Friday" else="We're currently closed. Come back and see us when we're open."]
+Our store is currently open
+[/time-restrict-repeat-2]
+[/time-restrict-repeat]`
+
+Note that with nested shortcodes, you need to add the `else` attribute to each shortcode.
+
 = Things to bear in mind =
 
-The time used by the plugin is your site's local time (check in Settings > General).
+* The time used by the plugin is your site's local time (check in Settings > General).
+* The `else` attribute *does* accept HTML, but is restricted by [WordPress' limitation on HTML inside shortcode attributes](https://codex.wordpress.org/Shortcode_API#HTML).
 
 I also run [Do It With WordPress](http://www.doitwithwp.com/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=my-other-sites "WordPress Tutorials"), which has an array of tutorials for managing, modifying and maintaining your WordPress sites, as well as [The WP Butler](https://www.thewpbutler.com/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=wordpress-services "WordPress Maintenance Services"), a service for keeping your site maintained, backed up, updated and secure.
 

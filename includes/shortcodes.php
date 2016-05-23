@@ -24,10 +24,11 @@
 function time_restricted_shortcode( $atts, $content ) {
 	extract( shortcode_atts(
 		array(
-			'show' => '', // Retired in favour of 'on' for better consistency.
-			'hide' => '', // Retired in favour of 'off' for better consistency.
-			'on' => '',
-			'off' => '',
+			'show'	=> '', // Retired in favour of 'on' for better consistency.
+			'hide'	=> '', // Retired in favour of 'off' for better consistency.
+			'on'	=> '',
+			'off'	=> '',
+			'else'	=> '',
 		), $atts )
 	);
 
@@ -52,9 +53,11 @@ function time_restricted_shortcode( $atts, $content ) {
 
 	if ( 1 === $showit && 0 === $hideit ) { // Show the content if conditions met.
 		return do_shortcode( $content );
+	} elseif ( ! empty( $else ) ) {
+		return wp_kses_post( $else );
 	}
 
-	return;
+	return '';
 }
 
 add_shortcode( 'time-restrict', 'time_restricted_shortcode' );
@@ -81,6 +84,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 			'offdate' => '',
 			'onmonth' => '',
 			'offmonth' => '',
+			'else'	=> '',
 		), $atts )
 	);
 
@@ -226,6 +230,8 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 
 	if ( 1 === $showit ) { // If everything's in order, show the content.
 		return do_shortcode( $content );
+	} elseif ( ! empty( $else ) ) {
+		return wp_kses_post( $else );
 	}
 
 	return '';
