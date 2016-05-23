@@ -1,15 +1,20 @@
 <?php
-/*
-Plugin Name: Shortcodes to show or hide content
-Plugin URI: https://github.com/theukedge/shortcodes-to-show-or-hide-content
-Description: Set a date/time to show or hide specific parts of a post's content
-Version: 2.3.1
-Author: Dave Clements
-Author URI: https://www.theukedge.com
-License: GPL2
-*/
+/**
+ * Plugin Name: Shortcodes to show or hide content
+ * Plugin URI: https://github.com/theukedge/shortcodes-to-show-or-hide-content
+ * Description: Set a date/time to show or hide specific parts of a post's content
+ * Version: 2.3.1
+ * Author: Dave Clements
+ * Author URI: https://www.theukedge.com
+ * License: GPL2
+ *
+ * @package STSOHC
+ * @author Dave Clements
+ * @version 2.3.1
+ */
 
-/*  Copyright 2015  Dave Clements  (email : https://www.theukedge.com/contact/)
+/*
+ 	Copyright 2016  Dave Clements  (email : https://www.theukedge.com/contact/)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -25,20 +30,24 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/* ---------------------------------- *
+/*
+ * ---------------------------------- *
  * constants
- * ---------------------------------- */
+ * ---------------------------------- *
+*/
 
-if ( !defined( 'SHOWHIDE_PLUGIN_DIR' ) ) {
-    define( 'SHOWHIDE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'SHOWHIDE_PLUGIN_DIR' ) ) {
+	define( 'SHOWHIDE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
-if ( !defined( 'SHOWHIDE_PLUGIN_URL' ) ) {
-    define( 'SHOWHIDE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'SHOWHIDE_PLUGIN_URL' ) ) {
+	define( 'SHOWHIDE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
-/* ---------------------------------- *
+/*
+ * ---------------------------------- *
  * includes
- * ---------------------------------- */
+ * ---------------------------------- *
+*/
 
-include( SHOWHIDE_PLUGIN_DIR . 'includes/shortcodes.php' ); // where the magic happens
-include( SHOWHIDE_PLUGIN_DIR . 'includes/retired-shortcodes.php' ); // legacy support for original shortcodes
+include( SHOWHIDE_PLUGIN_DIR . 'includes/shortcodes.php' ); // Where the magic happens.
+include( SHOWHIDE_PLUGIN_DIR . 'includes/retired-shortcodes.php' ); // Legacy support for original shortcodes.
