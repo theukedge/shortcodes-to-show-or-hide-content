@@ -4,8 +4,8 @@ Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
 Tags: time, date, show hide, expire, active, activate, competition, giveaway, advert, advertising, content, post, text, hidden, show, appear, hide, shortcode, restrict, repeat, daily, monthly, weekly, every, week, day, month, off, on, yearly, annually, annual, year
 Requires at least: 2.5
-Tested up to: 4.5.2
-Stable tag: 2.4
+Tested up to: 4.7
+Stable tag: 2.5
 License: GPLv2
 
 Shortcodes to wrap around text, which specify at what date or time that content should appear or disappear, either once, or on a recurring basis.
@@ -145,6 +145,13 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
+= 2.5 =
+
+Release date: December 14, 2016
+
+* Addition of `else` parameter.
+* Retire old (pre v2.0) shortcodes.
+
 = 2.4 =
 
 Release date: May 23, 2016
@@ -195,6 +202,9 @@ Release date: August 22, 2014
 * Plugin now respects site's local time, rather than server time
 
 == Upgrade Notice ==
+
+= 2.5 =
+Addition of `else` parameter to (optionally) specify what should appear when the enclosed content is hidden. Retire pre-2.0 shortcodes.
 
 = 2.4 =
 Coding standards, logic and performance improvements.
