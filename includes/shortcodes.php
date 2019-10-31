@@ -60,7 +60,7 @@ function time_restricted_shortcode( $atts, $content ) {
 	return '';
 }
 
-add_shortcode( 'time-restrict', 'time_restricted_shortcode' );
+add_shortcode( 'time_restrict', 'time_restricted_shortcode' );
 
 
 /**
@@ -237,7 +237,7 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 	return '';
 }
 
-add_shortcode( 'time-restrict-repeat', 'repeat_time_restricted_shortcode' );
-add_shortcode( 'time-restrict-repeat-1', 'repeat_time_restricted_shortcode' );
-add_shortcode( 'time-restrict-repeat-2', 'repeat_time_restricted_shortcode' );
-add_shortcode( 'time-restrict-repeat-3', 'repeat_time_restricted_shortcode' );
+add_shortcode( 'time_restrict_repeat', 'repeat_time_restricted_shortcode' );
+add_shortcode( 'time_restrict_repeat_1', 'repeat_time_restricted_shortcode' );
+add_shortcode( 'time_restrict_repeat_2', 'repeat_time_restricted_shortcode' );
+add_shortcode( 'time_restrict_repeat_3', 'repeat_time_restricted_shortcode' );

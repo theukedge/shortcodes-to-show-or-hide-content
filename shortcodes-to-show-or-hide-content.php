@@ -35,7 +35,9 @@
  * constants
  * ---------------------------------- *
 */
-
+if (!defined('SHOWHIDE_PLUGIN_VERSION')) {
+	define('SHOWHIDE_PLUGIN_VERSION', '2.5');
+}
 if ( ! defined( 'SHOWHIDE_PLUGIN_DIR' ) ) {
 	define( 'SHOWHIDE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
@@ -50,3 +52,4 @@ if ( ! defined( 'SHOWHIDE_PLUGIN_URL' ) ) {
 */
 
 include( SHOWHIDE_PLUGIN_DIR . 'includes/shortcodes.php' ); // Where the magic happens.
+include( SHOWHIDE_PLUGIN_DIR . 'includes/shortcodes_deprecated.php' ); // Magic for backwards compatibility
