@@ -43,11 +43,15 @@ function time_restricted_shortcode( $atts, $content ) {
 		$off = $hide;
 	}
 
-	if ( empty( $on ) || strtotime( $on ) < current_time( 'timestamp' ) ) { // If on time isn't set, or has already passed, show the content.
+	$now = current_datetime();
+
+	$time_on = new DateTimeImmutable( $on, wp_timezone() );
+	if ( empty( $on ) || $time_on < $now ) { // If on time isn't set, or has already passed, show the content.
 		$showit = 1;
 	}
 
-	if ( empty( $off ) || strtotime( $off ) > current_time( 'timestamp' ) ) {  // If off time isn't set, or is in the future, show the content.
+	$time_off = new DateTimeImmutable( $off, wp_timezone() );
+	if ( empty( $off ) || $time_off > $now ) {  // If off time isn't set, or is in the future, show the content.
 		$hideit = 0;
 	}
 
