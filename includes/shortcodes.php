@@ -94,6 +94,8 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 	$offwday = date( 'w', strtotime( ucfirst( $offday ) ) );
 	$onmonth = date( 'n', strtotime( $onmonth ) ); // Make sure month is in numberical format.
 	$offmonth = date( 'n', strtotime( $offmonth ) );
+	$ondate = ltrim( $ondate, '0' ); // Remove leading zeroes (if they exist)
+	$offdate = ltrim( $offdate, '0' );
 
 	$todaysday = date( 'w', current_time( 'timestamp' ) ); // What's the time, Mr. Wolf?
 	$todaysdate = date( 'j', current_time( 'timestamp' ) );
